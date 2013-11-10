@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="demo">
+<head>
+    <meta charset="UTF-8">
+    <title>angularjs medium editor | demo</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/demo.css">
+    <link rel="stylesheet" href="../bower_components/medium-editor/dist/css/medium-editor.css">
+    <style>
+    </style>
+</head>
+<body>
+    <div id="container" ng-controller="demo">
+        <h1>Medium Editor for AngularJS</h1>
+        <form name="demo">
+            <div ng-model="text" medium-editor></div>
+        </form>
+    </div>
+    <p style="text-align: center;"><small><a style="color: #333;" target="_blank" href="http://www.goodreads.com/reader/475-great-expectations">Source</a></small></p>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/medium-editor/dist/js/medium-editor.js"></script>
+    <script src="../dist/angular-medium-editor.js"></script>
+    <script src="demo.js"></script>
+</body>
+</html>

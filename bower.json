@@ -1,0 +1,13 @@
+{
+  "name": "angular-medium-editor",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular": "latest",
+    "medium-editor": "1.2.2"
+  },
+  "devDependencies": {
+    "angular": "latest",
+    "angular-mocks": "latest",
+    "medium-editor": "1.2.2"
+  }
+}
