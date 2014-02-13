@@ -20,7 +20,7 @@ angular.module('angular-medium-editor', [])
         var placeholder = opts.placeholder || 'Type your text';
 
         // view -> model
-        iElement.on('blur', function() {
+        iElement.on('blur input', function() {
 
           scope.$apply(function() {
 
