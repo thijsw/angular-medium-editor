@@ -17,7 +17,17 @@ In your web page:
 ```
 
 ## Documentation
-_(Coming soon)_
+Header example limited to one line and no toolbar
+```html
+<h1 ng-model="title" medium-editor options='{"placeholder": "Enter a title", "disableToolbar": true, "forcePlainText": true, "disableReturn": true}'></h1>
+```
+
+Paragraph with support for multiple lines and customized toolbar buttons
+```html
+<p ng-model="description" medium-editor options='{"placeholder": "Enter a description", "buttons": ["bold", "italic", "underline", "anchor", "header1", "header2", "quote", "orderedlist", "unorderedlist"]}'></p>
+```
+
+_(More coming soon)_
 
 ## Examples
 _(Coming soon)_
