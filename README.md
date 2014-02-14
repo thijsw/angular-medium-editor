@@ -16,6 +16,13 @@ In your web page:
 <script src="dist/angular-medium-editor.min.js"></script>
 ```
 
+## Demo
+If you want to view the included demo, you have to run bower first in order to retrieve the dependencies.
+
+```sh
+$ bower install
+```
+
 ## Documentation
 Header example limited to one line and no toolbar
 ```html
