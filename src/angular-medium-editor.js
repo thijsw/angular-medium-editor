@@ -19,8 +19,7 @@ angular.module('angular-medium-editor', [])
 
         var placeholder = opts.placeholder || 'Type your text';
 
-        // view -> model
-        iElement.on('blur', function() {
+        var onChange = function() {
 
           scope.$apply(function() {
 
@@ -33,13 +32,17 @@ angular.module('angular-medium-editor', [])
 
             ctrl.$setViewValue(iElement.html());
           });
-        });
+        };
+
+        // view -> model
+        iElement.on('blur', onChange);
+        iElement.on('input', onChange);
 
         // model -> view
         ctrl.$render = function() {
 
           if (!editor) {
-            // Hide placeholder when the model is not empty  
+            // Hide placeholder when the model is not empty
             if (!ctrl.$isEmpty(ctrl.$viewValue)) {
               opts.placeholder = '';
             }
