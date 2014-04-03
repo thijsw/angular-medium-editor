@@ -3,11 +3,11 @@
   "version": "0.0.2",
   "dependencies": {
     "angular": "latest",
-    "medium-editor": "1.5.4"
+    "medium-editor": "1.7.5"
   },
   "devDependencies": {
     "angular": "latest",
     "angular-mocks": "latest",
-    "medium-editor": "1.5.4"
+    "medium-editor": "1.7.5"
   }
 }
