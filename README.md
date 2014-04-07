@@ -20,7 +20,7 @@ In your web page:
 If you want to view the included demo, you have to run bower first in order to retrieve the dependencies.
 
 ```sh
-$ bower install
+$ bower install --save angular-medium-editor
 ```
 
 ## Documentation
