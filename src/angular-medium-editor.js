@@ -2,7 +2,7 @@
 
 angular.module('angular-medium-editor', [])
 
-  .directive('mediumEditor', function() {
+  .directive('mediumEditor', function($timeout) {
 
     return {
       require: 'ngModel',
@@ -19,6 +19,19 @@ angular.module('angular-medium-editor', [])
 
         var placeholder = opts.placeholder || 'Type your text';
 
+        var createEditor = function(options) {
+          var editor = new MediumEditor(iElement, options);
+          if(options.addons && iElement.mediumInsert) {
+            $timeout(function() {
+              iElement.mediumInsert({
+                editor: editor,
+                addons: options.addons
+              });
+            });
+          }
+          return editor;
+        };
+
         var onChange = function() {
 
           scope.$apply(function() {
@@ -27,7 +40,7 @@ angular.module('angular-medium-editor', [])
             // lacks an API method to alter placeholder after initialization
             if (iElement.html() == '<p><br></p>') {
               opts.placeholder = placeholder;
-              var editor = new MediumEditor(iElement, opts);
+              var editor = createEditor(opts);
             }
 
             ctrl.$setViewValue(iElement.html());
@@ -47,7 +60,7 @@ angular.module('angular-medium-editor', [])
               opts.placeholder = '';
             }
 
-            var editor = new MediumEditor(iElement, opts);
+            var editor = createEditor(opts);
           }
 
           iElement.html(ctrl.$isEmpty(ctrl.$viewValue) ? '' : ctrl.$viewValue);

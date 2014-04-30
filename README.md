@@ -34,6 +34,12 @@ Paragraph with support for multiple lines and customized toolbar buttons
 <p ng-model="description" medium-editor options='{"placeholder": "Enter a description", "buttons": ["bold", "italic", "underline", "anchor", "header1", "header2", "quote", "orderedlist", "unorderedlist"]}'></p>
 ```
 
+Integrating with [medium-editor-insert-plugin](https://github.com/orthes/medium-editor-insert-plugin)
+```html
+<script src="path/to/medium-editor-insert-plugin.all.min.js"></script>
+<div ng-model="description" medium-editor options='{"addons": { "images": {} } }'></div>
+```
+
 _(More coming soon)_
 
 ## Examples
