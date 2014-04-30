@@ -14,7 +14,7 @@ angular.module('angular-medium-editor', [])
         // Parse options
         var opts = { };
         if (iAttrs.options) {
-          opts = angular.fromJson(iAttrs.options);
+          opts = scope.$eval(iAttrs.options);
         }
 
         var placeholder = opts.placeholder || 'Type your text';
