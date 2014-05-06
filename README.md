@@ -34,6 +34,42 @@ Paragraph with support for multiple lines and customized toolbar buttons
 <p ng-model="description" medium-editor options='{"placeholder": "Enter a description", "buttons": ["bold", "italic", "underline", "anchor", "header1", "header2", "quote", "orderedlist", "unorderedlist"]}'></p>
 ```
 
+Example for extending the toolbar with customized element 'highlighter'
+```html
+<p ng-model="text" medium-editor options='{"buttons": ["bold", "italic", "highlight"]}' bindOptions="mediumBindOptions"></p>
+```
+```javascript
+function Highlighter() {
+  this.button = document.createElement('button');
+  this.button.className = 'medium-editor-action';
+  this.button.innerText = 'H';
+  this.button.onclick = this.onClick.bind(this);
+  this.classApplier = rangy.createCssClassApplier('highlight', {
+    elementTagName: 'mark',
+    normalize: true
+  });
+}
+Highlighter.prototype.onClick = function() {
+  this.classApplier.toggleSelection();
+};
+Highlighter.prototype.getButton = function() {
+  return this.button;
+};
+Highlighter.prototype.checkState = function(node) {
+  if (node.tagName == 'MARK') {
+    this.button.classList.add('medium-editor-button-active');
+  }
+};
+
+var mediumBindOptions = {
+  extensions: {
+    'highlight': new Highlighter()
+  }
+};
+
+scope.mediumBindOptions = mediumBindOptions;
+```
+
 _(More coming soon)_
 
 ## Examples
