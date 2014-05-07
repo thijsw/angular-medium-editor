@@ -1,6 +1,6 @@
 {
   "name": "angular-medium-editor",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "AngularJS directive for Medium.com editor clone",
   "keywords": [
     "angular",
