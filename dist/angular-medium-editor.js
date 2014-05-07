@@ -3,14 +3,35 @@ angular.module('angular-medium-editor', []).directive('mediumEditor', function (
   return {
     require: 'ngModel',
     restrict: 'AE',
+    scope: { bindOptions: '=' },
     link: function (scope, iElement, iAttrs, ctrl) {
       angular.element(iElement).addClass('angular-medium-editor');
       // Parse options
-      var opts = {};
-      if (iAttrs.options) {
-        opts = angular.fromJson(iAttrs.options);
-      }
-      var placeholder = opts.placeholder || 'Type your text';
+      var opts = {}, placeholder = '';
+      var prepOpts = function () {
+        if (iAttrs.options) {
+          opts = angular.fromJson(iAttrs.options);
+        }
+        var bindOpts = {};
+        if (scope.bindOptions !== undefined) {
+          bindOpts = scope.bindOptions;
+        }
+        opts = angular.extend(opts, bindOpts);
+      };
+      prepOpts();
+      scope.$watch('bindOptions', function () {
+        // in case options are provided after mediumEditor directive has been compiled and linked (and after $render function executed)
+        // we need to re-initialize
+        if (ctrl.editor) {
+          ctrl.editor.deactivate();
+        }
+        prepOpts();
+        // Hide placeholder when the model is not empty
+        if (!ctrl.$isEmpty(ctrl.$viewValue)) {
+          opts.placeholder = '';
+        }
+        ctrl.editor = new MediumEditor(iElement, opts);
+      });
       var onChange = function () {
         scope.$apply(function () {
           // If user cleared the whole text, we have to reset the editor because MediumEditor
@@ -27,12 +48,12 @@ angular.module('angular-medium-editor', []).directive('mediumEditor', function (
       iElement.on('input', onChange);
       // model -> view
       ctrl.$render = function () {
-        if (!editor) {
+        if (!this.editor) {
           // Hide placeholder when the model is not empty
           if (!ctrl.$isEmpty(ctrl.$viewValue)) {
             opts.placeholder = '';
           }
-          var editor = new MediumEditor(iElement, opts);
+          this.editor = new MediumEditor(iElement, opts);
         }
         iElement.html(ctrl.$isEmpty(ctrl.$viewValue) ? '' : ctrl.$viewValue);
       };
