@@ -10,7 +10,7 @@ angular.module('angular-medium-editor', []).directive('mediumEditor', function (
       var opts = {}, placeholder = '';
       var prepOpts = function () {
         if (iAttrs.options) {
-          opts = angular.fromJson(iAttrs.options);
+          opts = scope.$eval(iAttrs.options);
         }
         var bindOpts = {};
         if (scope.bindOptions !== undefined) {
