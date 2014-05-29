@@ -5,6 +5,7 @@
     "angular": "latest",
     "medium-editor": "1.7.5"
   },
+  "main": "./dist/angular-medium-editor.js",
   "devDependencies": {
     "angular": "latest",
     "angular-mocks": "latest",
