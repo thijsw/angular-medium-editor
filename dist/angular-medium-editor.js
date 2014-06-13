@@ -19,6 +19,7 @@ angular.module('angular-medium-editor', []).directive('mediumEditor', function (
         opts = angular.extend(opts, bindOpts);
       };
       prepOpts();
+      placeholder = opts.placeholder;
       scope.$watch('bindOptions', function () {
         // in case options are provided after mediumEditor directive has been compiled and linked (and after $render function executed)
         // we need to re-initialize
@@ -36,7 +37,7 @@ angular.module('angular-medium-editor', []).directive('mediumEditor', function (
         scope.$apply(function () {
           // If user cleared the whole text, we have to reset the editor because MediumEditor
           // lacks an API method to alter placeholder after initialization
-          if (iElement.html() == '<p><br></p>') {
+          if (iElement.html() === '<p><br></p>' || iElement.html() === '') {
             opts.placeholder = placeholder;
             var editor = new MediumEditor(iElement, opts);
           }

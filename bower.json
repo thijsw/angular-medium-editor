@@ -1,14 +1,14 @@
 {
   "name": "angular-medium-editor",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "dependencies": {
     "angular": "latest",
-    "medium-editor": "1.7.5"
+    "medium-editor": "1.8.*"
   },
   "main": "./dist/angular-medium-editor.js",
   "devDependencies": {
     "angular": "latest",
     "angular-mocks": "latest",
-    "medium-editor": "1.7.5"
+    "medium-editor": "1.8.*"
   }
 }
