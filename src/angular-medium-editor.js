@@ -73,6 +73,9 @@ angular.module('angular-medium-editor', [])
           }
 
           iElement.html(ctrl.$isEmpty(ctrl.$viewValue) ? '' : ctrl.$viewValue);
+          if (ctrl.$viewValue){
+            iElement.removeClass('medium-editor-placeholder');
+          }
         };
 
       }
