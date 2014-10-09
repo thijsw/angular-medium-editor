@@ -73,6 +73,9 @@ angular.module('angular-medium-editor', [])
           }
 
           iElement.html(ctrl.$isEmpty(ctrl.$viewValue) ? '' : ctrl.$viewValue);
+          
+          // hide placeholder when view is not empty
+          if(!ctrl.$isEmpty(ctrl.$viewValue)) angular.element(iElement).removeClass('medium-editor-placeholder'); 
         };
 
       }
