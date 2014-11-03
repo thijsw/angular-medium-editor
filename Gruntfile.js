@@ -109,7 +109,7 @@ module.exports = function(grunt) {
         src: ['<%= yo.src %>/{,*/}*.js']
       }
     },
-    ngmin: {
+    ngAnnotate: {
       options: {
         banner: '<%= meta.banner %>'
       },
@@ -146,7 +146,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
-    'ngmin:dist',
+    'ngAnnotate:dist',
     'uglify:dist'
   ]);
 
