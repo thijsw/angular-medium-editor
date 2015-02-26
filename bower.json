@@ -3,12 +3,12 @@
   "version": "0.0.6",
   "dependencies": {
     "angular": "latest",
-    "medium-editor": "1.8.*"
+    "medium-editor": "<=3.x"
   },
   "main": "./dist/angular-medium-editor.js",
   "devDependencies": {
     "angular": "latest",
     "angular-mocks": "latest",
-    "medium-editor": "1.8.*"
+    "medium-editor": "<=3.x"
   }
 }
