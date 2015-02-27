@@ -7,10 +7,21 @@ angular.module('angular-medium-editor', [])
     return {
       require: 'ngModel',
       restrict: 'AE',
-      scope: { bindOptions: '=' },
+      scope: {
+        bindOptions: '=',
+        ngDisabled: '='
+      },
       link: function(scope, iElement, iAttrs, ctrl) {
-
         angular.element(iElement).addClass('angular-medium-editor');
+
+        scope.$watch('ngDisabled', function(newValue) {
+          if (newValue === true) {
+            ctrl.editor.deactivate();
+          }
+          else {
+            ctrl.editor.activate();
+          }
+        });
 
         // Parse options
         var opts = {},
@@ -39,6 +50,10 @@ angular.module('angular-medium-editor', [])
             opts.placeholder = '';
           }
           ctrl.editor = new MediumEditor(iElement, opts);
+
+          if (scope.ngDisabled === true) {
+            ctrl.editor.deactivate();
+          }
         });
 
         var onChange = function() {
@@ -50,6 +65,10 @@ angular.module('angular-medium-editor', [])
             if (iElement.html() === '<p><br></p>' || iElement.html() === '') {
               opts.placeholder = placeholder;
               var editor = new MediumEditor(iElement, opts);
+
+              if (scope.ngDisabled === true) {
+                ctrl.editor.deactivate();
+              }
             }
 
             ctrl.$setViewValue(iElement.html());
@@ -70,12 +89,16 @@ angular.module('angular-medium-editor', [])
             }
 
             this.editor = new MediumEditor(iElement, opts);
+
+            if (scope.ngDisabled === true) {
+              ctrl.editor.deactivate();
+            }
           }
 
           iElement.html(ctrl.$isEmpty(ctrl.$viewValue) ? '' : ctrl.$viewValue);
-          
+
           // hide placeholder when view is not empty
-          if(!ctrl.$isEmpty(ctrl.$viewValue)) angular.element(iElement).removeClass('medium-editor-placeholder'); 
+          if(!ctrl.$isEmpty(ctrl.$viewValue)) angular.element(iElement).removeClass('medium-editor-placeholder');
         };
 
       }
