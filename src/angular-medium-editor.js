@@ -31,7 +31,7 @@ angular.module('angular-medium-editor', [])
           // in case options are provided after mediumEditor directive has been compiled and linked (and after $render function executed)
           // we need to re-initialize
           if (ctrl.editor) {
-            ctrl.editor.deactivate();
+            ctrl.editor.destroy();
           }
           prepOpts();
           // Hide placeholder when the model is not empty

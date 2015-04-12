@@ -1,4 +1,3 @@
-// Generated on 2013-11-10 using generator-angular-component 0.2.3
 'use strict';
 
 module.exports = function(grunt) {
@@ -17,7 +16,7 @@ module.exports = function(grunt) {
   };
 
   // Load all grunt tasks
-  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+  require('load-grunt-tasks')(grunt, {scope: 'devDependencies'});
 
   // Project configuration
   grunt.initConfig({
@@ -148,13 +147,6 @@ module.exports = function(grunt) {
     'clean:dist',
     'ngAnnotate:dist',
     'uglify:dist'
-  ]);
-
-  grunt.registerTask('release', [
-    'test',
-    'bump-only',
-    'dist',
-    'bump-commit'
   ]);
 
   grunt.registerTask('default', ['build']);
