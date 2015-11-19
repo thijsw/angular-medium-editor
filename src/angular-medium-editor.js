@@ -68,6 +68,11 @@ angular.module('angular-medium-editor', [])
             // Hide placeholder when the model is not empty
             if (!ctrl.$isEmpty(ctrl.$viewValue)) {
               opts.placeholder = '';
+
+              angular.forEach(iElement, function(element) {
+                if (typeof(element.dataset.placeholder) != 'undefined')
+                  element.dataset.placeholder = '';
+              });
             }
 
             this.editor = new MediumEditor(iElement, opts);
