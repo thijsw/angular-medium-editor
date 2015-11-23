@@ -59,6 +59,7 @@ angular.module('angular-medium-editor', [])
         // view -> model
         iElement.on('blur', onChange);
         iElement.on('input', onChange);
+        iElement.on('paste', onChange);
 
         // model -> view
         ctrl.$render = function() {
