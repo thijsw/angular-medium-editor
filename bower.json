@@ -5,5 +5,13 @@
     "angular": "1.3.*",
     "medium-editor": "5.*"
   },
-  "main": "./dist/angular-medium-editor.js"
+  "main": "./dist/angular-medium-editor.js",
+  "ignore": [
+    "**/.*",
+    "*.md",
+    "Gruntfile.js",
+    "package.json",
+    "src",
+    "demo"
+  ]
 }
