@@ -56,7 +56,7 @@ Paragraph with support for multiple lines and customized toolbar buttons
 ```
 
 #### Custom extension
-Example for extending the toolbar with customized element `highlighter` (using [rangy](https://code.google.com/p/rangy/) and the [CSS Class Applier Module](https://code.google.com/p/rangy/wiki/CSSClassApplierModule) to support highlighting of text). For more detailed info on extensions, please refer to [MediumEditor](https://github.com/daviferreira/medium-editor).
+Example for extending the toolbar with customized element `highlighter` (using [rangy](https://github.com/timdown/rangy) and the [CSS Class Applier Module](https://code.google.com/p/rangy/wiki/CSSClassApplierModule) to support highlighting of text). For more detailed info on extensions, please refer to [MediumEditor](https://github.com/daviferreira/medium-editor).
 ```html
 <p ng-model="text" medium-editor bind-options="mediumBindOptions"></p>
 ```
