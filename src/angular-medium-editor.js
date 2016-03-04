@@ -46,6 +46,10 @@ angular.module('angular-medium-editor', [])
         scope.$watch('bindOptions', function(bindOptions) {
           ngModel.editor.init(iElement, bindOptions);
         });
+
+        scope.$on('$destroy', function() {
+          ngModel.editor.destroy();
+        });
       }
     };
 
