@@ -26,7 +26,10 @@ angular.module('angular-medium-editor', [])
 
         ngModel.$render = function() {
           iElement.html(ngModel.$viewValue || "");
-          ngModel.editor.getExtensionByName('placeholder').updatePlaceholder(iElement[0]);
+          var placeholder = ngModel.editor.getExtensionByName('placeholder');
+          if (placeholder) {
+            placeholder.updatePlaceholder(iElement[0]);
+          }
         };
 
         ngModel.$isEmpty = function(value) {
@@ -45,6 +48,10 @@ angular.module('angular-medium-editor', [])
 
         scope.$watch('bindOptions', function(bindOptions) {
           ngModel.editor.init(iElement, bindOptions);
+        });
+
+        scope.$on('$destroy', function() {
+          ngModel.editor.destroy();
         });
       }
     };

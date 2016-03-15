@@ -1,6 +1,6 @@
 {
   "name": "angular-medium-editor",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "AngularJS directive for Medium.com editor clone",
   "keywords": [
     "angular",
@@ -17,11 +17,7 @@
     "type": "git",
     "url": "https://github.com/thijsw/angular-medium-editor.git"
   },
-  "licenses": [
-    {
-      "type": "MIT"
-    }
-  ],
+  "license": "MIT",
   "devDependencies": {
     "connect-livereload": "^0.4.0",
     "grunt": "^0.4.5",
