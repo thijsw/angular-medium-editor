@@ -1,5 +1,5 @@
 # angular-medium-editor
-This is an AngularJS directive for the [Medium.com inline editor clone](https://github.com/daviferreira/medium-editor) by Davi Ferreira.
+This is an AngularJS directive for the [Medium.com inline editor clone](https://github.com/yabwe/medium-editor) by Davi Ferreira.
 
 ## Install
 
@@ -14,7 +14,7 @@ Then add `<script>` to your `index.html`:
 <script src="/bower_components/angular-medium-editor/dist/angular-medium-editor.js"></script>
 ```
 
-Remember to include Angular and [Medium editor](https://github.com/daviferreira/medium-editor) before the directive.
+Remember to include Angular and [Medium editor](https://github.com/yabwe/medium-editor) before the directive.
 
 Then add `angular-medium-editor` as a dependency for your app:
 
@@ -56,7 +56,7 @@ Paragraph with support for multiple lines and customized toolbar buttons
 ```
 
 #### Custom extension
-Example for extending the toolbar with customized element `highlighter` (using [rangy](https://github.com/timdown/rangy) and the [CSS Class Applier Module](https://code.google.com/p/rangy/wiki/CSSClassApplierModule) to support highlighting of text). For more detailed info on extensions, please refer to [MediumEditor](https://github.com/daviferreira/medium-editor).
+Example for extending the toolbar with customized element `highlighter` (using [rangy](https://github.com/timdown/rangy) and the [CSS Class Applier Module](https://code.google.com/p/rangy/wiki/CSSClassApplierModule) to support highlighting of text). For more detailed info on extensions, please refer to [MediumEditor](https://github.com/yabwe/medium-editor).
 ```html
 <p ng-model="text" medium-editor bind-options="mediumBindOptions"></p>
 ```
