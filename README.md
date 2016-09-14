@@ -8,6 +8,11 @@ Install with [Bower](https://bower.io/):
 $ bower install --save angular-medium-editor
 ```
 
+Install width [Npm](https://www.npmjs.com/):
+```sh
+$ npm install --save angular-medium-editor
+```
+
 Then add `<script>` to your `index.html`:
 
 ```html
