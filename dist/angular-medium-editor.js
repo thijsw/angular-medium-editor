@@ -25,7 +25,7 @@ angular.module('angular-medium-editor', [])
         ngModel.editor = new MediumEditor(iElement, scope.bindOptions);
 
         ngModel.$render = function() {
-          iElement.html(ngModel.$viewValue || "");
+          ngModel.editor.setContent(ngModel.$viewValue || "");
           var placeholder = ngModel.editor.getExtensionByName('placeholder');
           if (placeholder) {
             placeholder.updatePlaceholder(iElement[0]);
