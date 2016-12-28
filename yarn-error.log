@@ -1,0 +1,67 @@
+Arguments: 
+  /usr/local/Cellar/node/7.2.1/bin/node /usr/local/bin/yarn init
+
+PATH: 
+  /Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/usr/local/MacGPG2/bin
+
+Yarn version: 
+  0.17.10
+
+Node version: 
+  7.2.1
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "name": "angular-medium-editor",
+    "version": "1.1.1",
+    "description": "AngularJS directive for Medium.com editor clone",
+    "keywords": [
+      "angular",
+      "medium-editor"
+    ],
+    "homepage": "https://github.com/thijsw/angular-medium-editor",
+    "bugs": "https://github.com/thijsw/angular-medium-editor/issues",
+    "author": {
+      "name": "Thijs Wijnmaalen",
+      "email": "thijs@wijnmaalen.name",
+      "url": "https://twitter.com/thijsw"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/thijsw/angular-medium-editor.git"
+    },
+    "license": "MIT",
+    "main": "dist/angular-medium-editor.js",
+    "devDependencies": {
+      "connect-livereload": "^0.4.0",
+      "grunt": "^0.4.5",
+      "grunt-bump": "0.0.16",
+      "grunt-contrib-clean": "^0.6.0",
+      "grunt-contrib-concat": "^0.5.0",
+      "grunt-contrib-connect": "^0.8.0",
+      "grunt-contrib-jshint": "^0.10.0",
+      "grunt-contrib-less": "^0.11.4",
+      "grunt-contrib-uglify": "^0.6.0",
+      "grunt-contrib-watch": "^0.6.1",
+      "grunt-ng-annotate": "0.4.0",
+      "grunt-open": "^0.2.3",
+      "load-grunt-tasks": "^2.0.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  TypeError: Cannot convert object to primitive value
+      at Object.<anonymous> (/usr/local/Cellar/yarn/0.17.10/libexec/lib/node_modules/yarn/lib/cli/commands/init.js:93:27)
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/0.17.10/libexec/lib/node_modules/yarn/node_modules/babel-runtime/helpers/asyncToGenerator.js:17:30)
+      at /usr/local/Cellar/yarn/0.17.10/libexec/lib/node_modules/yarn/node_modules/babel-runtime/helpers/asyncToGenerator.js:28:13
+      at process._tickCallback (internal/process/next_tick.js:103:7)
