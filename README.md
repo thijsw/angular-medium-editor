@@ -5,7 +5,7 @@ This is an Angular 2 directive for the [Medium.com inline editor clone](https://
 
 Install with [Npm](https://www.npmjs.com/):
 ```sh
-$ npm install --save angular-medium-editor
+$ npm install --save angular2-medium-editor
 ```
 
 Remember to include the [Medium editor](https://github.com/yabwe/medium-editor) to your Angular 2 project before the directive.
