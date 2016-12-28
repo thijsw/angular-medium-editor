@@ -11,7 +11,7 @@ $ npm install --save angular2-medium-editor
 Remember to include the [Medium editor](https://github.com/yabwe/medium-editor) to your Angular 2 project before the directive.
 
 ```bash
-  npm install medium-editor
+$ npm install --save medium-editor
 ```
 
 If all goes well, the angular2-medium-editor package should import medium-editor from your node_modules.
