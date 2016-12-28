@@ -1,4 +1,4 @@
-# angular-medium-editor
+# angular2-medium-editor
 This is an Angular 2 directive for the [Medium.com inline editor clone](https://github.com/yabwe/medium-editor) by Davi Ferreira, inspired by the [AngularJS medium editor directive](https://github.com/thijsw/angular-medium-editor).
 
 ## Install
