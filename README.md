@@ -1,14 +1,15 @@
 # angular2-medium-editor
-This is an Angular 2 directive for the [Medium.com inline editor clone](https://github.com/yabwe/medium-editor) by Davi Ferreira, inspired by the [AngularJS medium editor directive](https://github.com/thijsw/angular-medium-editor).
+This is an Angular 2 directive for the [Medium.com inline editor clone](https://github.com/yabwe/medium-editor) by Davi Ferreira, derived from the [AngularJS medium editor directive](https://github.com/thijsw/angular-medium-editor).
 
-## Install
+## Installing the Directive
 
 Install with [Npm](https://www.npmjs.com/):
+
 ```sh
-$ npm install --save angular2-medium-editor
+$ npm install --save angular2-medium-editor 
 ```
 
-Remember to include the [Medium editor](https://github.com/yabwe/medium-editor) to your Angular 2 project before the directive.
+It is required to include the [Medium editor](https://github.com/yabwe/medium-editor) in your Angular 2 project as well.
 
 ```bash
 $ npm install --save medium-editor
@@ -17,11 +18,13 @@ $ npm install --save medium-editor
 If all goes well, the angular2-medium-editor package should import medium-editor from your node_modules.
 
 Finally, import the directive into your project:
+
 ```typescript
   import { MediumEditorDirective } from 'angular2-medium-editor/medium-editor.directive.ts';
 ```
 
 And add the directive to your Declarations:
+
 ```typescript
   @NgModule({
     ...
@@ -35,6 +38,7 @@ And add the directive to your Declarations:
 ## Usage
 
 Use as an element:
+
 ```html
   <medium-editor [(editorModel)]="textVar"
       [editorOptions]="{'toolbar': {'buttons': ['bold', 'italic', 'underline', 'h1', 'h2', 'h3']}}" 
@@ -42,6 +46,7 @@ Use as an element:
 ```
 
 You can optionally pass a placeholder value:
+
 ```html
   <medium-editor [(editorModel)]="textVar"
       [editorOptions]="{'toolbar': {'buttons': ['bold', 'italic', 'underline', 'h1', 'h2', 'h3']}}" 
