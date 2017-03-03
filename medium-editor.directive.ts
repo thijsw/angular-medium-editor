@@ -68,7 +68,7 @@ export class MediumEditorDirective implements OnInit, OnChanges, OnDestroy {
   }
 
   refreshView() {
-    this.el.nativeElement.innerHTML = this.model;
+    this.editor.setContent(this.model);
   }
 
   ngOnChanges(changes): void {
