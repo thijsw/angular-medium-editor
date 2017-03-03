@@ -54,7 +54,7 @@ export class MediumEditorDirective implements OnInit, OnChanges, OnDestroy {
 
   ngOnInit() {
     this.element = this.el.nativeElement;
-    this.element.innerHTML = '<div id="angularMediumEditor"></div>'
+    this.element.innerHTML = '<div id="angularMediumEditor">' + this.model + '</div>';
     this.active = true;
 
     if (this.placeholder && this.placeholder.length) {
@@ -68,7 +68,9 @@ export class MediumEditorDirective implements OnInit, OnChanges, OnDestroy {
   }
 
   refreshView() {
-    this.editor.setContent(this.model);
+    if (this.editor) {
+      this.editor.setContent(this.model);
+    }
   }
 
   ngOnChanges(changes): void {
