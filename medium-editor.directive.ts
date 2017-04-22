@@ -26,7 +26,8 @@ import * as MediumEditor from 'medium-editor';
   selector: 'medium-editor',
   host: {
     '(blur)' : 'updateModel()',
-    '(keyup)': 'updateModel()'
+    '(keyup)': 'updateModel()',
+    '(mouseleave)' : 'updateModel()'
   }
 })
 export class MediumEditorDirective implements OnInit, OnChanges, OnDestroy {
