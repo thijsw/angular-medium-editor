@@ -1,4 +1,3 @@
-import { Context } from 'vm';
 import {
     Directive,
     ElementRef,
@@ -8,18 +7,18 @@ import {
     OnDestroy,
     OnInit,
     Output,
-    Renderer
+    Renderer,
+    ɵlooseIdentical
 } from '@angular/core';
-import { isPropertyUpdated } from '@angular/forms/src/directives/shared';
 import * as MediumEditor from 'medium-editor';
 
 /**
  * Medium Editor wrapper directive.
  *
  * Examples
- * <medium-editor 
+ * <medium-editor
       [(editorModel)]="textVar"
- *    [editorOptions]="{'toolbar': {'buttons': ['bold', 'italic', 'underline', 'h1', 'h2', 'h3']}}" 
+ *    [editorOptions]="{'toolbar': {'buttons': ['bold', 'italic', 'underline', 'h1', 'h2', 'h3']}}"
  *    [editorPlaceholder]="placeholderVar"></medium-editor>
  */
 @Directive({
@@ -31,10 +30,10 @@ import * as MediumEditor from 'medium-editor';
   }
 })
 export class MediumEditorDirective implements OnInit, OnChanges, OnDestroy {
-  
+
   // private options: any = {};
   // private placeholder: string;
-  private content : string;
+  private content: string;
   private lastViewModel: string;
 
   private factor: number;
@@ -50,7 +49,7 @@ export class MediumEditorDirective implements OnInit, OnChanges, OnDestroy {
   @Output('editorModelChange') update = new EventEmitter();
 
   constructor(private el: ElementRef) {
-    
+
   }
 
   ngOnInit() {
@@ -75,7 +74,7 @@ export class MediumEditorDirective implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnChanges(changes): void {
-    if (isPropertyUpdated(changes, this.lastViewModel)) {
+    if (this.isPropertyUpdated(changes, this.lastViewModel)) {
       this.lastViewModel = this.model;
       this.refreshView();
     }
@@ -85,7 +84,7 @@ export class MediumEditorDirective implements OnInit, OnChanges, OnDestroy {
    * Emit updated model
    */
   updateModel(): void {
-    var value = this.editor.getContent();
+    const value = this.editor.getContent();
     this.lastViewModel = value;
     this.update.emit(value);
   }
@@ -95,5 +94,16 @@ export class MediumEditorDirective implements OnInit, OnChanges, OnDestroy {
    */
   ngOnDestroy(): void {
     this.editor.destroy();
+  }
+
+  isPropertyUpdated(changes, viewModel) {
+    if (!changes.hasOwnProperty('model')) {
+      return false;
+    }
+    const change = changes['model'];
+    if (change.isFirstChange()) {
+      return true;
+    }
+    return !ɵlooseIdentical(viewModel, change.currentValue);
   }
 }
