@@ -1,6 +1,5 @@
 import {
     Directive,
-    HostListener,
     ElementRef,
     EventEmitter,
     Input,
