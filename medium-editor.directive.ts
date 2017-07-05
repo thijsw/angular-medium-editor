@@ -1,5 +1,6 @@
 import {
     Directive,
+    HostListener,
     ElementRef,
     EventEmitter,
     Input,
@@ -75,7 +76,7 @@ export class MediumEditorDirective implements OnInit, OnChanges, OnDestroy {
    */
   updateModel(): void {
     let value = this.editor.getContent();
-    value = value.trim().replace('&nbsp;', '');
+    value = value.replace(/&nbsp;/g, '').trim();
     this.lastViewModel = value;
     this.update.emit(value);
   }
