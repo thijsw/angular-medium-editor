@@ -1,4 +1,3 @@
-import { Context } from 'vm';
 import {
     Directive,
     ElementRef,
@@ -8,40 +7,29 @@ import {
     OnDestroy,
     OnInit,
     Output,
-    Renderer
+    Renderer,
+    ɵlooseIdentical
 } from '@angular/core';
-import { isPropertyUpdated } from '@angular/forms/src/directives/shared';
 import * as MediumEditor from 'medium-editor';
 
 /**
  * Medium Editor wrapper directive.
  *
  * Examples
- * <medium-editor 
+ * <medium-editor
       [(editorModel)]="textVar"
- *    [editorOptions]="{'toolbar': {'buttons': ['bold', 'italic', 'underline', 'h1', 'h2', 'h3']}}" 
+ *    [editorOptions]="{'toolbar': {'buttons': ['bold', 'italic', 'underline', 'h1', 'h2', 'h3']}}"
  *    [editorPlaceholder]="placeholderVar"></medium-editor>
  */
 @Directive({
-  selector: 'medium-editor',
-  host: {
-    '(blur)' : 'updateModel()',
-    '(keyup)': 'updateModel()',
-    '(mouseleave)' : 'updateModel()'
-  }
+  selector: 'medium-editor'
 })
 export class MediumEditorDirective implements OnInit, OnChanges, OnDestroy {
-  
-  // private options: any = {};
-  // private placeholder: string;
-  private content : string;
-  private lastViewModel: string;
 
-  private factor: number;
+  private lastViewModel: string;
   private element: HTMLElement;
   private editor: any;
   private active: boolean;
-
 
 	@Input('editorModel') model: any;
   @Input('editorOptions') options: any;
@@ -49,13 +37,11 @@ export class MediumEditorDirective implements OnInit, OnChanges, OnDestroy {
 
   @Output('editorModelChange') update = new EventEmitter();
 
-  constructor(private el: ElementRef) {
-    
-  }
+  constructor(private el: ElementRef) { }
 
   ngOnInit() {
     this.element = this.el.nativeElement;
-    this.element.innerHTML = '<div id="angularMediumEditor">' + this.model + '</div>';
+    this.element.innerHTML = '<div class="me-editable">' + this.model + '</div>';
     this.active = true;
 
     if (this.placeholder && this.placeholder.length) {
@@ -65,7 +51,10 @@ export class MediumEditorDirective implements OnInit, OnChanges, OnDestroy {
     }
 
     // Global MediumEditor
-    this.editor = new MediumEditor('#angularMediumEditor', this.options);
+    this.editor = new MediumEditor('.me-editable', this.options);
+    this.editor.subscribe('editableInput', (event, editable) => {
+      this.updateModel();
+    });
   }
 
   refreshView() {
@@ -75,7 +64,7 @@ export class MediumEditorDirective implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnChanges(changes): void {
-    if (isPropertyUpdated(changes, this.lastViewModel)) {
+    if (this.isPropertyUpdated(changes, this.lastViewModel)) {
       this.lastViewModel = this.model;
       this.refreshView();
     }
@@ -85,7 +74,8 @@ export class MediumEditorDirective implements OnInit, OnChanges, OnDestroy {
    * Emit updated model
    */
   updateModel(): void {
-    var value = this.editor.getContent();
+    let value = this.editor.getContent();
+    value = value.replace(/&nbsp;/g, '').trim();
     this.lastViewModel = value;
     this.update.emit(value);
   }
@@ -95,5 +85,16 @@ export class MediumEditorDirective implements OnInit, OnChanges, OnDestroy {
    */
   ngOnDestroy(): void {
     this.editor.destroy();
+  }
+
+  isPropertyUpdated(changes, viewModel) {
+    if (!changes.hasOwnProperty('model')) { return false; }
+
+    const change = changes.model;
+
+    if (change.isFirstChange()) {
+      return true;
+    }
+    return !ɵlooseIdentical(viewModel, change.currentValue);
   }
 }
