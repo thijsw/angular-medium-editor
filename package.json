@@ -6,18 +6,20 @@
     "angular",
     "medium-editor"
   ],
-  "homepage": "https://github.com/codiak/angular2-medium-editor",
-  "bugs": "https://github.com/codiak/angular2-medium-editor/issues",
+  "homepage": "https://github.com/thijsw/angular-medium-editor",
+  "bugs": "https://github.com/thijsw/angular-medium-editor/issues",
   "author": {
-    "name": "Codiak"
+    "name": "Thijs Wijnmaalen",
+    "url": "https://twitter.com/thijsw"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/codiak/angular2-medium-editor"
+    "url": "https://github.com/thijsw/angular-medium-editor"
   },
   "license": "MIT",
   "main": "medium-editor.directive.ts",
-  "devDependencies": { 
-    
+  "devDependencies": {},
+  "dependencies": {
+    "medium-editor": "^5.23.2"
   }
 }

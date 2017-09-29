@@ -1,26 +1,20 @@
-# angular2-medium-editor
-This is an Angular 2 directive for the [Medium.com inline editor clone](https://github.com/yabwe/medium-editor) by Davi Ferreira, derived from the [AngularJS medium editor directive](https://github.com/thijsw/angular-medium-editor).
+# angular-medium-editor
+This is an Angular 4 directive for the [Medium.com inline editor clone](https://github.com/yabwe/medium-editor) by Davi Ferreira.
 
 ## Installing the Directive
 
 Install with [Npm](https://www.npmjs.com/):
 
 ```sh
-$ npm install --save angular2-medium-editor
+$ npm install --save angular-medium-editor
 ```
 
-It is required to include the [Medium editor](https://github.com/yabwe/medium-editor) in your Angular 2 project as well.
-
-```bash
-$ npm install --save medium-editor
-```
-
-If all goes well, the angular2-medium-editor package should import medium-editor from your node_modules.
+If all goes well, the angular-medium-editor package should import medium-editor from your node_modules.
 
 Finally, import the directive into your project:
 
 ```typescript
-  import { MediumEditorDirective } from 'angular2-medium-editor/medium-editor.directive.ts';
+  import { MediumEditorDirective } from 'angular-medium-editor/medium-editor.directive.ts';
 ```
 
 And add the directive to your Declarations:
@@ -33,7 +27,6 @@ And add the directive to your Declarations:
       MediumEditorDirective,
       ...
 ```
-
 
 ## Usage
 
@@ -54,6 +47,9 @@ You can optionally pass a placeholder value:
 ```
 
 For more information on which options you can pass with [editorOptions], check MediumEditor's [options documentation](https://github.com/yabwe/medium-editor#mediumeditor-options) for details.
+
+## Thank you
+This Angular 4 version was created by ```@codiak``` and ```@ferdiemmen``` based on initial work by @thijsw for the AngularJS 1.x version. A big thanks to them!
 
 ## License
 The MIT License
