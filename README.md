@@ -56,7 +56,7 @@ This library only adds the necessary Javascript to get the editor working, you h
 ```
 
 ## Thank you
-This Angular 4 version was created by '''@codiak''' and '''@ferdiemmen''' based on initial work by @thijsw for the AngularJS 1.x version. A big thanks to them!
+This Angular 4 version was created by **@codiak** and **@ferdiemmen** based on initial work by @thijsw for the AngularJS 1.x version. A big thanks to them!
 
 ## License
 The MIT License
