@@ -48,8 +48,15 @@ You can optionally pass a placeholder value:
 
 For more information on which options you can pass with [editorOptions], check MediumEditor's [options documentation](https://github.com/yabwe/medium-editor#mediumeditor-options) for details.
 
+This library only adds the necessary Javascript to get the editor working, you have to include the styles yourself or use the CDN:
+
+```html
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/themes/default.min.css" type="text/css" media="screen" charset="utf-8">
+```
+
 ## Thank you
-This Angular 4 version was created by ```@codiak``` and ```@ferdiemmen``` based on initial work by @thijsw for the AngularJS 1.x version. A big thanks to them!
+This Angular 4 version was created by '''@codiak''' and '''@ferdiemmen''' based on initial work by @thijsw for the AngularJS 1.x version. A big thanks to them!
 
 ## License
 The MIT License
