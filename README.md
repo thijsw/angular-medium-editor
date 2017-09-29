@@ -1,105 +1,59 @@
-# angular-medium-editor
-This is an AngularJS directive for the [Medium.com inline editor clone](https://github.com/yabwe/medium-editor) by Davi Ferreira.
+# angular2-medium-editor
+This is an Angular 2 directive for the [Medium.com inline editor clone](https://github.com/yabwe/medium-editor) by Davi Ferreira, derived from the [AngularJS medium editor directive](https://github.com/thijsw/angular-medium-editor).
 
-## Install
-
-Install with [Bower](https://bower.io/):
-```sh
-$ bower install --save angular-medium-editor
-```
+## Installing the Directive
 
 Install with [Npm](https://www.npmjs.com/):
+
 ```sh
-$ npm install --save angular-medium-editor
+$ npm install --save angular2-medium-editor
 ```
 
-Then add `<script>` to your `index.html`:
+It is required to include the [Medium editor](https://github.com/yabwe/medium-editor) in your Angular 2 project as well.
 
-```html
-<script src="/bower_components/angular-medium-editor/dist/angular-medium-editor.js"></script>
+```bash
+$ npm install --save medium-editor
 ```
 
-Remember to include Angular and [Medium editor](https://github.com/yabwe/medium-editor) before the directive.
+If all goes well, the angular2-medium-editor package should import medium-editor from your node_modules.
 
-Then add `angular-medium-editor` as a dependency for your app:
+Finally, import the directive into your project:
 
-```javascript
-angular.module('myApp', ['angular-medium-editor']);
+```typescript
+  import { MediumEditorDirective } from 'angular2-medium-editor/medium-editor.directive.ts';
 ```
 
-## Documentation
+And add the directive to your Declarations:
+
+```typescript
+  @NgModule({
+    ...
+    bootstrap: [ AppComponent ],
+    declarations: [
+      MediumEditorDirective,
+      ...
+```
+
+
+## Usage
 
 Use as an element:
+
 ```html
-<medium-editor></medium-editor>
+  <medium-editor [(editorModel)]="textVar"
+      [editorOptions]="{'toolbar': {'buttons': ['bold', 'italic', 'underline', 'h1', 'h2', 'h3']}}" 
+      [editorPlaceholder]="placeholderVar"></medium-editor>
 ```
 
-...or attribute:
+You can optionally pass a placeholder value:
+
 ```html
-<p medium-editor></p>
+  <medium-editor [(editorModel)]="textVar"
+      [editorOptions]="{'toolbar': {'buttons': ['bold', 'italic', 'underline', 'h1', 'h2', 'h3']}}" 
+      [editorPlaceholder]="placeholderVar"></medium-editor>
 ```
 
-Pass options with `bind-options` attribute:
-```html
-<p medium-editor bind-options="options"></p>
-```
-
-See MediumEditor's [options documentation](https://github.com/yabwe/medium-editor#mediumeditor-options) for details.
-
-## Examples
-
-#### Single line, no toolbar
-Header example limited to one line and no toolbar
-```html
-<h1 ng-model="title" medium-editor bind-options="{disableReturn: true, disableExtraSpaces: true, toolbar: false}" data-placeholder="Enter a title"></h1>
-```
-
-#### Multiline with custom toolbar
-Paragraph with support for multiple lines and customized toolbar buttons
-```html
-<p ng-model="description" medium-editor bind-options="{'toolbar': {'buttons': ['bold', 'italic', 'underline']}}" data-placeholder="Enter a description"></p>
-```
-
-#### Custom extension
-Example for extending the toolbar with customized element `highlighter` (using [rangy](https://github.com/timdown/rangy) and the [CSS Class Applier Module](https://code.google.com/p/rangy/wiki/CSSClassApplierModule) to support highlighting of text). For more detailed info on extensions, please refer to [MediumEditor](https://github.com/yabwe/medium-editor).
-```html
-<p ng-model="text" medium-editor bind-options="mediumBindOptions"></p>
-```
-```javascript
-function Highlighter() {
-  this.button = document.createElement('button');
-  this.button.className = 'medium-editor-action';
-  this.button.innerText = 'H';
-  this.button.onclick = this.onClick.bind(this);
-  this.classApplier = rangy.createCssClassApplier('highlight', {
-    elementTagName: 'mark',
-    normalize: true
-  });
-}
-Highlighter.prototype.onClick = function() {
-  this.classApplier.toggleSelection();
-};
-Highlighter.prototype.getButton = function() {
-  return this.button;
-};
-Highlighter.prototype.checkState = function(node) {
-  if (node.tagName == 'MARK') {
-    this.button.classList.add('medium-editor-button-active');
-  }
-};
-
-scope.mediumBindOptions = {
-  toolbar: {
-    buttons: ['bold', 'italic', 'highlight']
-  },
-  extensions: {
-    highlight: new Highlighter()
-  }
-};
-```
-
-## Running the demo
-If you want to view the included demo, you have to run `bower` first in order to retrieve the dependencies.
+For more information on which options you can pass with [editorOptions], check MediumEditor's [options documentation](https://github.com/yabwe/medium-editor#mediumeditor-options) for details.
 
 ## License
 The MIT License
