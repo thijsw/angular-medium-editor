@@ -1,4 +1,18 @@
 # angular-medium-editor
+
+> [!WARNING]
+> **This project is no longer maintained and the repository is archived.**
+>
+> - [AngularJS reached end of life](https://blog.angular.dev/discontinued-long-term-support-for-angularjs-cc066b82e65a) in December 2021 and no longer receives security fixes.
+> - [medium-editor](https://github.com/yabwe/medium-editor), the editor this directive wraps, has not had a release since 2017.
+> - The `4.0.0-alpha` release (Angular 4) was never packaged correctly and does not work. It is deprecated on npm.
+>
+> Version `1.2.1` keeps working for existing AngularJS apps, but no new fixes will be released.
+> For new projects, use an actively maintained rich-text editor, for example one built on
+> [Tiptap](https://tiptap.dev/), [Quill](https://quilljs.com/) or [ngx-editor](https://github.com/sibiraj-s/ngx-editor).
+>
+> The code is MIT licensed, so you are welcome to fork it. Thanks to everyone who contributed over the years!
+
 This is an AngularJS directive for the [Medium.com inline editor clone](https://github.com/yabwe/medium-editor) by Davi Ferreira.
 
 ## Install
